@@ -1,0 +1,149 @@
+body {
+  font-family: "Inter", sans-serif;
+  margin: 0;
+  background: #f8f9fa;
+  color: #333;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+
+
+
+header.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero {
+    /* Behold bakgrunnsbildet, men sørg for at stien er riktig fra CSS-filen */
+    background-image: url('assets/hero2.jpg'); /* Antatt at assets er relativt til CSS */
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
+    
+    /* Sett en fast, kontrollert høyde */
+    height: 60vh; /* Eksempel: Tar 60% av skjermhøyden */
+    
+    /* Senter innholdet over bildet */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px; 
+    color: white; 
+    
+    /* Behold overlayet for lesbarhet */
+    position: relative;
+    z-index: 1; 
+}
+
+.hero::before {
+    /* Overlayet er nå kritisk for at teksten skal synes over bildet */
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 50, 100, 0.5); /* Semi-transparent blå */
+    z-index: -1; 
+}
+
+
+
+.cta-button {
+  background: white;
+  color: #0077b6;
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  margin-top: 20px;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+  background: #023e8a;
+  color: white;
+  transform: scale(1.05);
+}
+
+section {
+  max-width: 900px;
+  margin: 80px auto;
+  padding: 0 20px;
+}
+
+h2 {
+  color: #0077b6;
+}
+
+ul li {
+  margin: 10px 0;
+}
+
+/* style.css */
+
+.video-container {
+   text-align: center;
+    margin-top: 20px;
+    
+    /* NYTT: Begrens bredden for å unngå at prototypen blir for langt unna innholdet */
+    max-width: 900px; /* Samme bredde som dine andre seksjoner */
+    margin-left: auto;
+    margin-right: auto;
+    
+    /* Sentrerer den begrensede iframe-en */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+}
+
+iframe {
+    /* 👈 VIKTIG: Definerer en fast, mobil-lignende bredde */
+    width: 375px; 
+    /* 👈 VIKTIG: Definerer en fast høyde for å etterligne en mobilskjerm */
+    height: 700px; 
+    
+    /* Legger til stil for å se ut som en app-ramme */
+    border: 10px solid #333; /* Tykk, mørk ramme */
+    border-radius: 20px; /* Mer avrundede hjørner */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Gir dybde */
+    
+    /* Sikrer at innholdet i iframen ikke overløper */
+    overflow: hidden; 
+}
+
+/* Responsiv justering: Sikre at det ser bra ut på svært smale skjermer */
+@media (max-width: 400px) {
+    iframe {
+        /* På svært små skjermer, la den ta nesten full bredde, men behold høyden */
+        width: 95%; 
+        height: 600px; /* Kan reduseres litt for å passe bedre */
+        border-width: 5px; /* Tynnere ramme */
+    }
+}
+
+
+
+footer {
+  text-align: center;
+  padding: 30px;
+  background: #0077b6;
+  color: white;
+}
+
+/* Fade-in animasjon */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
